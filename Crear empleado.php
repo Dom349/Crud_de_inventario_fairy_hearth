@@ -1,5 +1,7 @@
 <?php
 
+include 'funciones.php';
+
 if (isset($_POST['submit'])) {
  
   $resultado = [
