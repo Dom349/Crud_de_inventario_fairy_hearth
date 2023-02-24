@@ -13,7 +13,7 @@ try {
   $sentencia = $conexion->prepare($consultaSQL);
   $sentencia->execute();
 
-  $empleados = $sentencia->fetchAll();
+  $medicamento = $sentencia->fetchAll();
 
 } catch(PDOException $error) {
   $error= $error->getMessage();
@@ -42,7 +42,7 @@ if ($error) {
   <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <a href="crear.php"  class="btn btn-primary mt-4">Crear empleado</a>
+      <a href="crear.php"  class="btn btn-primary mt-4">Crear medicamento</a>
       <hr>
     </div>
   </div>
@@ -50,28 +50,28 @@ if ($error) {
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="mt-3">Lista de empleados</h2>
+      <h2 class="mt-3">Lista de medicamentos</h2>
       <table class="table">
         <thead>
           <tr>
             <th>#</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>telefono</th>
+            <th>Nom del empleado</th>
+            <th>Nom del medicamento</th>
+            <th>NUM de existencias</th>
+            <th>di de sucursal</th>
           </tr>
         </thead>
         <tbody>
           <?php
-          if ($empleados && $sentencia->rowCount() > 0) {
-            foreach ($empleados as $fila) {
+          if ($medicamento && $sentencia->rowCount() > 0) {
+            foreach ($medicamento as $fila) {
               ?>
               <tr>
                 <td><?php echo escapar($fila["id"]); ?></td>
-                <td><?php echo escapar($fila["nombre"]); ?></td>
-                <td><?php echo escapar($fila["apellido"]); ?></td>
-                <td><?php echo escapar($fila["email"]); ?></td>
-                <td><?php echo escapar($fila["telefono"]); ?></td>
+                <td><?php echo escapar($fila["nombre del empleado"]); ?></td>
+                <td><?php echo escapar($fila["nombre del medicamento"]); ?></td>
+                <td><?php echo escapar($fila["número de existencias"]); ?></td>
+                <td><?php echo escapar($fila["dirección de sucursal"]); ?></td>
               </tr>
               <?php
             }
