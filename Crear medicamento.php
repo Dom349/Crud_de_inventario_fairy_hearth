@@ -61,7 +61,7 @@ $consultaSQL = "INSERT INTO medicamento (dirección de sucursal, nombre del empl
         </div>
         <div class="form-group">
           <label for=número de existencias">número de existencias</label>
-          <input type="text" name="número de existencias" id="número de existencias" class="form-control">
+          <input type="number" name="número de existencias" id="número de existencias" class="form-control">
         </div>
         <div class="form-group">
           <input type="submit" name="submit" class="btn btn-primary" value="Enviar">
