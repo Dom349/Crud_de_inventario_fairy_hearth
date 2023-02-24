@@ -1,3 +1,44 @@
+<?php
+
+if (isset($_POST['submit'])) {
+ 
+  $resultado = [
+    'error' => false,
+    'mensaje' => 'Usuario agregado con éxito'
+  ];
+  
+  $config = include 'config.php';
+
+  try {
+    $dsn = 'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['name'];
+    $conexion = new PDO($dsn, $config['db']['user'], $config['db']['pass'], $config['db']['options']);
+
+    // Código que insertará un alumno
+
+  } catch(PDOException $error) {
+    $resultado['error'] = true;
+    $resultado['mensaje'] = $error->getMessage();
+  }
+}
+$empleado = [
+  "nombre"   => $_POST['nombre'],
+  "apellido" => $_POST['apellido'],
+  "email"    => $_POST['email'],
+  "teléfono "=> $_POST['teléfono'],
+];
+$consultaSQL = "INSERT INTO empleados (nombre, apellido, email, telefono)";
+    $consultaSQL .= "values (:" . implode(", :", array_keys($empleado)) . ")";
+    
+    $sentencia = $conexion->prepare($consultaSQL);
+    $sentencia->execute($empleado);
+
+  } catch(PDOException $error) {
+    $resultado['error'] = true;
+    $resultado['mensaje'] = $error->getMessage();
+  }
+}
+?>
+
 <?php include "templates/header.php"; ?>
 
 <div class="container">
