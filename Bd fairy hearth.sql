@@ -1,12 +1,13 @@
 
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+CREAR  BASE DE DATOS  inventario_crud ;
 
-    <title>AppCRUD PHP inventario </title>
+usar inventario_crud;
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  </head>
+CREATE TABLE  inventario de fairy hearth (
+  Dirección de sucursal INT(10),
+  Nom. De empleado VARCHAR(15) NOT NULL,
+  Nom. Del producto VARCHAR(15) NOT NULL,
+  NUM. De existencias INT(3),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+  actualizado_en TIMESTAMP PREDETERMINADO CURRENT_TIMESTAMP
+);
