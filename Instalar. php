@@ -6,7 +6,7 @@ try {
   $sql = file_get_contents("data/bd fairy hearth.sql");
   
   $conexion->exec($sql);
-  echo "La base de datos y la tabla de Empleados se han creado con éxito.";
+  echo "La base de datos y la tabla de Medicamentos se han creado con éxito.";
 } catch(PDOException $error) {
   echo $error->getMessage();
 }
